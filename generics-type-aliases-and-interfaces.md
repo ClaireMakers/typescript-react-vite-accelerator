@@ -205,6 +205,60 @@ const isItIndoorCat = ( arg: Pet & Cat ) : boolean => {
 //This function expects an argument structured like so: { name: string, age: number, colour: string, indoorsOnly: bolean }
 ```
 
+### Practicing:
+
+Complete the code below to write a middleware function that returns a Session Object made up of two object properties: one of "user", containing all the relevant information about the user, and one of "permissions", containing all the relevant permissions for the user connecetd. 
+
+```
+enum PERMISSION_LEVEL { 
+	PERMISSION_LEVEL_ONE = 1,
+	PERMISSION_LEVEL_TWO,
+	PERMISSION_LEVEL_THREE
+}
+
+interface User {
+	username: string,
+	password: string,
+	permissionLevel: PERMISSION_LEVEL,
+}
+
+interface PermissionLevelOne {
+	canDeletePost: boolean,
+}
+
+interface PermissionLevelTwo {
+	canSuspendAccount: boolean,
+}
+
+interface PermissionLevelThree {
+	canDeleteUser: boolean,
+}
+
+const permissionsGrantingMiddleWare = () => {}
+```
+
+Expected behaviour: 
+
+```
+permissionsGrantingMiddleWare({ username: "Claire", password: "BanoffeePie", permissionLevel: PERMISSION_LEVEL.PERMISSION_LEVEL_ONE })
+
+// Should output: 
+session {
+    user: {
+        username: "Claire", 
+        password: "BanoffeePie", 
+        permissionLevel: PERMISSION_LEVEL.PERMISSION_LEVEL_ONE
+    },
+    permissions: {
+        canDeletePost: true,
+		canSuspendAccount: false,
+		canDeleteUser: false,
+    }
+}
+```
+
+Draw on the features of TypeScript discussed above to come up with your solution, building on the interfaces and the enum provided.
+
 ### Generics: 
 
 Generics allow you to write functions, classes and interfaces for which specific types will be declared later in the programme's lifecyle. They increase the re-usability and readability of your code - for instance, you can write a function that will take more than one argument type without having to list every single one in its declaration, while still enforcing proper typing throughout.  
