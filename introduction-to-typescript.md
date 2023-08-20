@@ -12,8 +12,8 @@ Here are a few exercises to get to grips with the basics of TypeScript:
 
     - [Exercises to learn about the main types and how to implement them.](https://github.com/makersacademy/typescript)
 
-1. Type Aliases and Interfaces.
-1. OOP and Generics.
+1. [Type Aliases and Interfaces](https://github.com/ClaireMakers/typescript-react-vite-accelerator/blob/main/type-alias-and-interfaces.md).
+1. [OOP and Generics](https://github.com/ClaireMakers/typescript-react-vite-accelerator/blob/main/oop-in-and-generics-in-typescript.md).
 
 [Refer to the TypeScript docs to support yourself when completing the exercises.](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html)
 

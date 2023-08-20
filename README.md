@@ -20,7 +20,7 @@ In this module, you will build a front-end to integrate with the back-end you bu
 ## Phase One - TypeScript Basics: 
 
 On our first day together, we will focus on the basics of Typescript. 
-Link. 
+[Link](https://github.com/ClaireMakers/typescript-react-vite-accelerator/blob/main/introduction-to-typescript.md)
 
 ## Phase Two - Improve your front-end TDD skills: 
 
