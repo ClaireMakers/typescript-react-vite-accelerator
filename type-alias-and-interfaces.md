@@ -322,4 +322,6 @@ const permissionsGrantingMiddleWare = ( user: User ) : Session => {
 ```
 </details>
 <br>
-Next Section //Link here
+
+[Next Section](https://github.com/ClaireMakers/typescript-react-vite-accelerator/blob/main/oop-in-and-generics-in-typescript.md)
+
