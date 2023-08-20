@@ -1,3 +1,5 @@
+## Generics and OOP 
+
 ### Generics: 
 
 Generics allow you to write functions, classes and interfaces for which specific types will be declared later in the programme's lifecyle. They increase the re-usability and readability of your code - for instance, you can write a function that will take more than one argument type without having to list every single one in its declaration, while still enforcing proper typing throughout.  
