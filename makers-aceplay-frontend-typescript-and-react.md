@@ -19,9 +19,18 @@ In this module, you will build a front-end to integrate with the back-end you bu
 
 ## Phase One - TypeScript Basics: 
 
+On our first day together, we will focus on the basics of Typescript. 
+Link. 
+
 ## Phase Two - Improve your front-end TDD skills: 
 
+On the second day, we will work on TDD with React and TypeScript. 
+Link. 
+
 ## Phase Three - Setting-up your front-end project: 
+
+From the second day onwards, you'll be building the front-end to your back-end project in Java. Here are the set-up steps you should follow:
+
 ### Vite, React and Cypress: 
 
 First, create a Vite project - Vite is a lot like create-react-app, and has been better maintained recently. The file architecture will be very similar to what you are used to. 
@@ -106,7 +115,6 @@ e2e: {
   },
 ```
 
- 
 
 ### Creating an API layer: 
 As applications grow, not separating UI code from data-fetching functionalities can get messy, and result in less maintanable code. For instance, you might end up re-writing the same fetching functionality over several components that rely on the same data; if something changes on your back-end, you then need to re-factor your front-end code in several places. This is time-consuming and not ideal from a design perspective. One way in which you can address that is by keeping your API calls in a separate file, and importing your functions across your components to re-use them as and when needed. 

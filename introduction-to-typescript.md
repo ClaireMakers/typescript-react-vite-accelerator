@@ -12,11 +12,15 @@ Here are a few exercises to get to grips with the basics of TypeScript:
 
     - [Exercises to learn about the main types and how to implement them.](https://github.com/makersacademy/typescript)
 
-1. Generics, Type Aliases and Interfaces.
-1. OOP with TypeScript.
+1. Type Aliases and Interfaces.
+1. OOP and Generics.
 
 [Refer to the TypeScript docs to support yourself when completing the exercises.](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html)
 
 ### Phase Two: Challenge
 
-ADD CHALLENGE HERE
+If you have worked through the exercises above and feel more comfortable with TypeScript, you should attempt the challenge below: 
+
+[Gilded Rose Challenge](https://github.com/makersacademy/course/blob/main/individual_challenges/gilded_rose.md)
+
+It will stretch your newly acquired TypeScript capacity, and your ability to read and re-factor TypeScript code! 

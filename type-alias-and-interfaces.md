@@ -1,4 +1,4 @@
-# Generics, Type Aliases and Interfaces
+# Type Aliases and Interfaces
 
 ### Type Aliases & Union Types: 
 
@@ -95,7 +95,7 @@ console.log(calculateArea({ random: "object" }))
 //should throw an error
 ```
 
-Your code should be tested using Jest. 
+Your code should be test-driven using Jest. 
 
 ### Interfaces & Intersection Types: 
 
@@ -207,9 +207,62 @@ const isItIndoorCat = ( arg: Pet & Cat ) : boolean => {
 
 ### Practicing:
 
-Complete the code below to write a middleware function that returns a Session Object made up of two object properties: one of "user", containing all the relevant information about the user, and one of "permissions", containing all the relevant permissions for the user connecetd. 
+Complete the code below to write a middleware function that returns a Session object made up of two object properties: one of "user", containing all the relevant information about the user, and one of "permissions", containing all the relevant permissions for the user connecetd. Notice how you can use an enum as a type - TypeScript allows for a lot of flexibility like this, and you'll get to explore it over the course of this week and the next.  
 
 ```
+enum PermissionLevel { 
+	PERMISSION_LEVEL_ONE = 1,
+	PERMISSION_LEVEL_TWO,
+	PERMISSION_LEVEL_THREE
+}
+
+interface User {
+	username: string,
+	password: string,
+	permissionLevel: PermissionLevel,
+}
+
+interface PermissionLevelOne {
+	canDeletePost: boolean,
+}
+
+interface PermissionLevelTwo {
+	canSuspendAccount: boolean,
+}
+
+interface PermissionLevelThree {
+	canDeleteUser: boolean,
+}
+
+const permissionsGrantingMiddleWare = () => {}
+```
+
+Expected behaviour: 
+
+```
+permissionsGrantingMiddleWare({ username: "Claire", password: "BanoffeePie", permissionLevel: PermissionLevel.PERMISSION_LEVEL_ONE })
+
+// Should output: 
+session {
+    user: {
+        username: "Claire", 
+        password: "BanoffeePie", 
+        permissionLevel: PermissionLevel.PERMISSION_LEVEL_ONE //( or 1, since it's the corresponding enum value )
+    },
+    permissions: {
+        canDeletePost: true,
+		canSuspendAccount: false,
+		canDeleteUser: false,
+    }
+}
+```
+
+Draw on the features of TypeScript discussed above to come up with your solution, building on the interfaces and the enum provided. Use Jest to test-drive your solution.
+
+<details>
+<summary>Reveal potential solution</summary>
+
+``` 
 enum PERMISSION_LEVEL { 
 	PERMISSION_LEVEL_ONE = 1,
 	PERMISSION_LEVEL_TWO,
@@ -234,48 +287,39 @@ interface PermissionLevelThree {
 	canDeleteUser: boolean,
 }
 
-const permissionsGrantingMiddleWare = () => {}
-```
+type PermissionsGranted = PermissionLevelOne & PermissionLevelTwo & PermissionLevelThree;
 
-Expected behaviour: 
+interface Session {
+	user: User 
+	permissionObj: PermissionsGranted;
+}
 
-```
-permissionsGrantingMiddleWare({ username: "Claire", password: "BanoffeePie", permissionLevel: PERMISSION_LEVEL.PERMISSION_LEVEL_ONE })
+const permissionsGrantingMiddleWare = ( user: User ) : Session => {
 
-// Should output: 
-session {
-    user: {
-        username: "Claire", 
-        password: "BanoffeePie", 
-        permissionLevel: PERMISSION_LEVEL.PERMISSION_LEVEL_ONE
-    },
-    permissions: {
-        canDeletePost: true,
+	const permissionsGranted: PermissionsGranted = {
+		canDeletePost: false,
 		canSuspendAccount: false,
 		canDeleteUser: false,
-    }
+	}
+	
+	const session: Session = {
+		user: user,
+		permissionObj: permissionsGranted,
+	}
+		
+	if (user.permissionLevel === PERMISSION_LEVEL.PERMISSION_LEVEL_ONE ) {
+		permissionsGranted.canDeletePost = true;
+	}
+	if ( user.permissionLevel === PERMISSION_LEVEL.PERMISSION_LEVEL_TWO ) { 
+		permissionsGranted.canSuspendAccount = true;
+	}
+	if (user.permissionLevel === PERMISSION_LEVEL.PERMISSION_LEVEL_THREE) { 
+		permissionsGranted.canDeleteUser = true;
+	}
+
+	return session;
 }
 ```
-
-Draw on the features of TypeScript discussed above to come up with your solution, building on the interfaces and the enum provided.
-
-### Generics: 
-
-Generics allow you to write functions, classes and interfaces for which specific types will be declared later in the programme's lifecyle. They increase the re-usability and readability of your code - for instance, you can write a function that will take more than one argument type without having to list every single one in its declaration, while still enforcing proper typing throughout.  
-
-For instance: 
-
-```
-const identity<Type>(arg: Type) : Type {
-    return arg; 
-}
-// => This is function can take and return any type of argument. It also captures the type provided when calling the function, as opposed, to, for example, the "any" type, which loses us access to that information. 
-
-// => The argument and the return value of the function must both be of "Type" - this would be incorrect if our "Type" wasn't of number, and this wouldn't be great code as it's likely to break that rule: 
-
-const identity<Type>(arg: Type) : Type {
-    return 0; 
-}
-
-```
-
+</details>
+<br>
+Next Section //Link here
