@@ -6,7 +6,7 @@ Generics allow you to write functions, classes and interfaces for which specific
 
 For instance: 
 
-```
+```typescript
 const identity = <Type>( arg: Type ) : Type {
     return arg; 
 }
@@ -21,7 +21,7 @@ const identity = <Type>( arg: Type ) : Type {
 
 You can use generics in combination with other TypeScript features - for instance, if we want to write a function that works on a set of type, and we have some idea in advance of these will be, we can add a constraint on a particular generic type. For instance: 
 
-```
+```typescript
 const logInfo = <Type>(arg: Type): void => { 
 	console.log(arg.length)
 }
@@ -45,7 +45,7 @@ The fundamental building blocks of OOP in TypeScript are very similar to JavaScr
 
 The default visibility for any class members is **public** - this means that they can be used and access from any other place in your code. 
 
-```
+```typescript
 class Cat {
 	public name: string; 
 
@@ -59,7 +59,7 @@ You don't necessarily need to add the "public" keyword in that scenario, but may
 
 Protected class members will be accessible and readable within their class as well as within any subclass: 
 
-```
+```typescript
 class Pet {
 	animalTypeStr: string; 
 
@@ -89,7 +89,7 @@ class Cat extends Pet {
 
 In this example, the ```getAnimalType()``` method can be used either as part of the Pet class, or the cat class, but not outside either of them - for instance, this would throw an error: 
 
-```
+```typescript
 const cat = new Cat("Sigrid", "Cat");
 cat.getAnimalType() 
 //the method is only accessible within Pet or Cat themselves, not outside. 
@@ -97,7 +97,7 @@ cat.getAnimalType()
 
 Finally, you can set class members to "private", meaning that they can't be accessed outside of the class at all, including any subclasses extending it: 
 
-```
+```typescript
 class Cat {
 	private name: string; 
 
@@ -109,7 +109,7 @@ class Cat {
 
 You can use generics in combination with class declarations to create generic classes, which will allow you a certain control over typing in a class, without being over-prescriptive:  
 
-```
+```typescript
 class Cat<Type> {
   name: Type;
   constructor(catName: Type) {
@@ -120,7 +120,7 @@ class Cat<Type> {
 
 Classes can also be used at types in TypeScript. For instance:
 
-```
+```typescript
 class Cat {
 	public name: string; 
 
@@ -134,7 +134,7 @@ const sigrid : Cat = new Cat("Sigrid");
 
 TypeScript will check that the object created matches the structure of the class ```Cat```. This means that it will check the object created shares its properties with the Cat class. In that scenario, they behave a little bit like an interface. There are some limits though as to what the compiler will "recognise" from that class - it will make sure all the properties match, but will not enforce method implementations. This is because it doesn't check the value is necessarily an instance of that particular class, only that the object **matches** the properties of this class. In practice:
 
-```
+```typescript
 class Cat {
 	public name: string; 
 
