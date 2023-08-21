@@ -4,7 +4,7 @@
 
 Type aliases are convenient ways to **store a particular type to re-use it throughout our programme** - in practice, it's the same as re-writing the actual type again and again. For instance:
 
-```
+```typescript
 type Cat = {
     name: string,
     colour: string
@@ -20,7 +20,7 @@ const izzy : { name: string, colour: string } = { name: "Izzy", colour: "Black a
 
 If we want to create more than one cat throughout our programme though, it makes a lot of sense to create a custom type and give it an alias name like "Cat" in the example above. Type aliases can be given to any type, including union types: 
 
-```
+```typescript
 type StringAlias = string;
 type NumberAlias = number;
 
@@ -29,7 +29,7 @@ type StringOrNum = StringAlias | NumberAlias;
 
 Aliases are also just that - they are not a distinct version of the type they represent. For instance, building on the example above: 
 
-```
+```typescript
 const isItString = ( input: StringOrNum ): StringOrNum =>  {
     return input;
 }
@@ -42,7 +42,7 @@ StringAlias represents a string, so that's not incorrect.
 
 StringAlias is just a **representation** of the type "string", renamed for our convenience. As far as the compiler is concerned, it's the same as the type "string". Properties can be made optional using "?" - this means is that if the property is set, it should have a specific type: 
 
-```
+```typescript
 type Cat = {
     name: string,
     colour: string,
@@ -66,7 +66,7 @@ Implement a function to calculate the area of a rectangle or a circle.
 <br>
 As a quick reminder, here are the formulas you'll need (we'll use 3.14 for Pi): 
 
-```
+```typescript
 Area of a rectangle = length × width .
 
 Area of a circle = 3.14 * square radius
@@ -75,7 +75,7 @@ Area of a circle = 3.14 * square radius
 
 Here is an example of what you should get if running the code: 
 
-```
+```typescript
 const rectangle: Rectangle = { width: 5, length: 10 }
 
 console.log(calculateArea(rectangle)); 
@@ -102,7 +102,7 @@ Your code should be test-driven using Jest.
 
 Interfaces are essentially named object types - for instance, these three ways of typing are very similar: 
 
-```
+```typescript
 const sigrid : { name: string, age: number } = { name: "Sigrid", age: 9 };
 
 interface Cat {
@@ -119,7 +119,7 @@ Interfaces, unlike types, **are open ended**, which means that **properties can 
 
 Interfaces also have some features that types on their own do not, such as, for instance, the ability to **extend from another interface or type** (a type cannot extend from an interface):
 
-```
+```typescript
 type Animal {
     isWild: boolean 
 }
@@ -141,7 +141,7 @@ interface Cat extends Pet {
 
 We touched upon union types before, and it is possible to use interfaces to build them up: 
 
-```
+```typescript
 interface Pet {
     name: string, 
     age: number,
@@ -161,7 +161,7 @@ type CatOrDog = Cat | Dog;
 ```
 There is another powerful tool you can use with Typescript, called **intersection types**. These are a bit similar to using the "extend" keyboard, because they will let you create a type that **combines several interfaces/types together**, as opposed to giving different alternatives like union types do. These allow you to **save new types under aliases**, whereas the **extend keyword preserves the interface's distict properties**, such as the ability to add to it later on in you programme. 
 
-```
+```typescript
 interface Pet {
     name: string, 
     age: number,
@@ -185,7 +185,7 @@ type PetDog = Pet & Dog;
 
 Intersection types can for instance be really useful in functions where you want the argument to have characteristics shared across multiple types/interfaces:
 
-```
+```typescript
 interface Pet {
     name: string, 
     age: number,
@@ -210,7 +210,7 @@ const isItIndoorCat = ( arg: Pet & Cat ) : boolean => {
 
 Complete the code below to write a middleware function that returns a Session object made up of two object properties: one of "user", containing all the relevant information about the user, and one of "permissions", containing all the relevant permissions for the user connecetd. Notice how you can use an enum as a type - TypeScript allows for a lot of flexibility like this, and you'll get to explore it over the course of this week and the next.  
 
-```
+```typescript
 enum PermissionLevel { 
 	PERMISSION_LEVEL_ONE = 1,
 	PERMISSION_LEVEL_TWO,
@@ -240,7 +240,7 @@ const permissionsGrantingMiddleWare = () => {}
 
 Expected behaviour: 
 
-```
+```typescript
 permissionsGrantingMiddleWare({ username: "Claire", password: "BanoffeePie", permissionLevel: PermissionLevel.PERMISSION_LEVEL_ONE })
 
 // Should output: 
@@ -263,7 +263,7 @@ Draw on the features of TypeScript discussed above to come up with your solution
 <details>
 <summary>Reveal potential solution</summary>
 
-``` 
+```typescript
 enum PERMISSION_LEVEL { 
 	PERMISSION_LEVEL_ONE = 1,
 	PERMISSION_LEVEL_TWO,
