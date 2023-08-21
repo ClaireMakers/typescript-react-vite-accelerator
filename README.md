@@ -105,7 +105,7 @@ Configure both the e2e tests and the component testing from there. These steps w
 
 On your cypress.config.ts file, add a line to specify your baseUrl for you end2end tests: 
 
-```
+```typescript
 e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
@@ -121,12 +121,6 @@ As applications grow, not separating UI code from data-fetching functionalities 
 In practice, this can mean creating one or several files that will act as function libraries for your API calls. In your case, you may decide whether one file is enough to contain the API calls you know will be necessary for your front-end, or you can choose to split them into several files, one for each endpoint, for instance. 
 
 [Here is some extra reading on the subject, everything done with axios can be done with fetch too.](https://semaphoreci.com/blog/api-layer-react)
-
-We will use Jest in order to test our API layer functionalities, so you will need to install it as well: 
-
-```
-npm --save-dev jest
-```
 
 ## User Stories: 
 
