@@ -6,7 +6,7 @@ Generics allow you to write functions, classes and interfaces for which specific
 
 For instance: 
 
-```
+```ts
 const identity = <Type>( arg: Type ) : Type {
     return arg; 
 }
