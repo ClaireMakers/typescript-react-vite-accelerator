@@ -36,7 +36,8 @@ const isItString = ( input: StringOrNum ): StringOrNum =>  {
 
 let string : string = "string"
 
-isItString(string); => Won't throw an error even though I didn't pass an argument of type StringAlias directly, StringAlias represents a string, so that's not incorrect.
+isItString(string); => Won't throw an error even though I didn't pass an argument of type StringAlias directly,
+StringAlias represents a string, so that's not incorrect.
 ```
 
 StringAlias is just a **representation** of the type "string", renamed for our convenience. As far as the compiler is concerned, it's the same as the type "string". Properties can be made optional using "?" - this means is that if the property is set, it should have a specific type: 
