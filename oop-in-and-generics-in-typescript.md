@@ -147,10 +147,9 @@ class Cat {
 	}
 }
 
-const sigrid : Cat = { name: "Sigrid", meow: () => { console.log("I can talk!!") }};
-
-//This will not throw an error, because this object has a property of name, which is a string, and a property "meow" that is a void function. I can re-implement the content of the function so long as I respect whatever type I set as its return value/arguments/etc. 
+const sigrid : Cat = { name: "Sigrid", meow: () => { console.log("I can talk!!") }}; 
 ```
+This will not throw an error, because this object has a property of name, which is a string, and a property "meow" that is a void function. I can re-implement the content of the function so long as I respect whatever type I set as its return value/arguments/etc. 
 
 [Here's an article that goes into depth about OOP and TypeScript if you want to explore those concepts in more depth.](https://archive.ph/U9XwR)
 
