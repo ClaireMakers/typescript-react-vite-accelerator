@@ -64,7 +64,7 @@ npm --save-dev vite-plugin-checker
 
 Then, modify your vite.config.ts to include it there as well - your file should look something like that at this point:
 
-```
+```typescript
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import checker from 'vite-plugin-checker'
