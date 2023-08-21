@@ -23,7 +23,7 @@ In this module, you will build a front-end to integrate with the back-end you bu
 
 ## Phase Two - Improve your front-end TDD skills: 
 
-On the second day, we will work on TDD with React and TypeScript. 
+[On the second day, we will work on TDD with React and TypeScript](https://github.com/makersacademy/frontend-tdd-challenges). 
 
 
 ## Phase Three - Setting-up your front-end project: 
